@@ -9,7 +9,7 @@ import TopRightNavs from "../Components/Nav/TopRightNavs";
 import TopLefNavs from "../Components/Nav/TopLefNavs";
 
 function MainLayout() {
-    const [navWidth, setNavWidth] = useState(240); // Default sidebar width
+    const [navWidth, setNavWidth] = useState(272); // Default sidebar width
     const [mobileOpen, setMobileOpen] = useState(false);
     const isMobile = useMediaQuery('(max-width:600px)');
     const isTablet = useMediaQuery('(max-width:960px)');
@@ -80,7 +80,7 @@ function MainLayout() {
                 component="main" 
                 sx={{ 
                     flexGrow: 1, 
-                    width: `calc(100% - ${!(isMobile || isTablet) ? navWidth : 0}px)`,
+                    width: `calc(100vw - ${!(isMobile || isTablet) ? navWidth : 0}px)`,
                     ml: `${!(isMobile || isTablet) ? navWidth : 0}px`,
                     transition: (theme) => theme.transitions.create(['width', 'margin'], {
                         easing: theme.transitions.easing.sharp,
@@ -89,7 +89,7 @@ function MainLayout() {
                     height: '100vh',
                     overflow: 'auto'
                 }}
-                className="pt-[64px] md:pt-[85px] px-3" // AppBar height
+                className="pt-[64px] md:pt-[85px] px-3 md:pl-6 md:pr-9 w-full no-scrollbar" // AppBar height
             >
                 <Outlet />
             </Box>

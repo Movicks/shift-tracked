@@ -19,5 +19,11 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  background-color: #ffffff;
+}
+
+/* no-scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 

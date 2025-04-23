@@ -1,7 +1,11 @@
 // import React from 'react'
 
+import DashboardMain from "../Components/MajorComponents/DashboardComponents/DashboardMain";
+
 export default function Dashboard() {
   return (
-    <div>Dashbord</div>
+    <main className="w-full">
+      <DashboardMain/>
+    </main>
   )
 }

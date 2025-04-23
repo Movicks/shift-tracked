@@ -13,7 +13,7 @@ import LogOutIcon from '../../assets/icons/logout.svg';
 import { AiOutlineSetting } from 'react-icons/ai';
 
 const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMobile, isTablet }) => {
-  const drawerWidth = 240;
+  const drawerWidth = 272;
   const location = useLocation();
 
   // Function to create SVG components from image sources
@@ -101,6 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
                 borderRadius: isActive ? '8px' : '8px',
                 pt: 0.5,
                 pb: 0.5,
+                my: 0.5,
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -115,7 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
                 primary={item.text} 
                 className='flex items-center mt-7 mb-7' 
                 primaryTypographyProps={{
-                  fontWeight: isActive ? 'normal' : 'normal'
+                  fontWeight: isActive ? 'normal' : 'normal' //just in case the team wants to add active font weight
                 }}
               />
             </ListItemButton>
