@@ -8,7 +8,7 @@ import EmployeeSpotlight from './EmployeeSpotlight';
 
 export default function DashboardMain() {
   return (
-      <section className="w-full flex flex-col gap-10 md:flex-row lg:justify-between no-scrollbar">
+      <section className="w-full flex flex-col gap-5 md:flex-row lg:justify-between no-scrollbar">
           {/* left hand side */}
           <div className="grid grid-cols-1 xl:grid-cols-2 w-full gap-5">
               {/* first card */}
@@ -18,7 +18,7 @@ export default function DashboardMain() {
               <ToDo />
 
                {/* third card */}
-              <div className="grid grid-cols-1 w-full gap-5 max-h-[380px] h-full">
+              <div className="grid grid-cols-1 w-full gap-5 h-[380px]">
                   {/* clock card */}
                   <WorkHour />
                   {/* star card */}
