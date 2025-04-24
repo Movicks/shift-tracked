@@ -13,12 +13,12 @@ export default function EmployeeSpotlight() {
     switch (activeTab) {
       case 'overview':
         return <div className="p-4 h-full flex flex-col items-center justify-center gap-2">
-          <div> 
+          <div className='w-full flex flex-col items-center text-center'> 
             <h1 className='text-[18px]'>Victor Idepe</h1>
             <p className="text-sm text-gray-400">4.9/5 Ratting</p>
           </div>
           <MedalBadge />
-          <p className="text-sm text-gray-400">Top-performing employee of January!</p>
+          <p className="text-sm text-gray-400 text-center">Top-performing employee of January!</p>
         </div>;
       case 'comments':
         return <div className="p-4">💬 Here are the user comments.</div>;
