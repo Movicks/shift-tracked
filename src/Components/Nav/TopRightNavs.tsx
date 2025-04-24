@@ -10,7 +10,7 @@ export default function TopRightNavs() {
   const toggleSearch = () => setShowSearch(prev => !prev);
 
   return (
-    <section className='flex items-center gap-2 px-4 py-2 relative'>
+    <section className='flex items-center gap-2 pl-4 md:pr-4 py-2 relative'>
       <div
         className={`transition-all duration-300 ease-in-out transform origin-right ${
           showSearch ? 'scale-100 opacity-100' : 'scale-0 opacity-0'

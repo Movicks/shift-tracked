@@ -67,7 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
   }, []);
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: 'transparent' }} className='drawer-container px-4 pt-[4rem] lg:py-3 flex flex-col gap-2 bg-[rgba(10, 10, 73, 0.2)] overflow-auto scrollbar-hide'>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: 'transparent' }} className='drawer-container px-4 pt-[4rem] md:pt-[5.5rem] lg:py-3 flex flex-col gap-2 bg-[rgba(10, 10, 73, 0.2)] overflow-auto scrollbar-hide'>
       <List sx={{ backgroundColor: 'transparent', color: 'black' }}>
         <div className='flex items-center gap-3'>
           <div className='w-[44px] h-[44px] bg-cover bg-center bg-blue-500 rounded-full'>
