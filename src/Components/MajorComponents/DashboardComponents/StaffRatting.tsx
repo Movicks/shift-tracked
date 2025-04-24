@@ -1,3 +1,4 @@
+import Headings from "./Headings";
 
 
 export default function StaffRatting() {
@@ -6,7 +7,7 @@ export default function StaffRatting() {
         <div className="flex items-center justify-between border-b border-gray-300 pb-4">
             <div className="flex items-center gap-2">
                 <img src='Svgs/star.svg' alt='icon' loading='lazy'/>
-                <h1 className='text-sm font-semibold'>Average Staff Ratting</h1>
+                <Headings header='Average Staff Ratting'/>
             </div>
             <button className="filter-btn border-1 border-gray-300 bg-white px-3 py-1 rounded-lg text-gray-400">Details</button>
         </div>
