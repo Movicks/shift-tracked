@@ -4,7 +4,7 @@ import DashboardMain from "../Components/MajorComponents/DashboardComponents/Das
 
 export default function Dashboard() {
   return (
-    <main className="w-full">
+    <main className="w-full h-full md:mb-[9rem]">
       <DashboardMain/>
     </main>
   )

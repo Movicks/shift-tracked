@@ -41,7 +41,7 @@ export default function ShiftTracker() {
                 <div className="flex items-center justify-between w-full">
                   <div>
                     <h1 className="text-[14px]">{person.fullName}</h1>
-                    <p className="text-sm text-gray-500">By {person.shiftHostedByName}</p>
+                    <p className="text-sm text-gray-400">By {person.shiftHostedByName}</p>
                   </div>
                   <span className="text-[12px] text-[#FF8447] pl-1 pr-2 py-1 bg-[#FFF1EB] rounded-full flex items-center gap-1 max-h-[25px]">
                     <AccessTimeFilledIcon style={{color: '#FF8447', fontSize: '20px'}} className='w-2 h-2'/> {person.minutesLeft} mins
@@ -68,7 +68,7 @@ export default function ShiftTracker() {
                 <div className="flex items-center justify-between w-full">
                   <div>
                     <h1 className="text-sm">{person.fullName}</h1>
-                    <p className="text-sm text-gray-500">By {person.shiftHostedByName}</p>
+                    <p className="text-sm text-gray-400">By {person.shiftHostedByName}</p>
                   </div>
                   <span className="text-sm text-[#717784] pl-1 pr-2 py-1 bg-[#F2F5F8] rounded-full flex items-center gap-1 max-h-[25px] whitespace-nowrap">
                     <MinusCirlce size="22" color="#717784" variant="Bold" /> Completed

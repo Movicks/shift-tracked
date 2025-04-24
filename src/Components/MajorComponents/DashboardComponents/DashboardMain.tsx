@@ -30,7 +30,7 @@ export default function DashboardMain() {
           </div>
 
           {/* right hand side */}
-          <div className="border border-gray-300 rounded-lg lg:!w-[35rem] w-full lg:h-[784px] p-4">
+          <div className="border border-gray-300 rounded-lg lg:!w-[35rem] w-full lg:h-[784px] p-4 bg-red-300">
               <div>1</div>
               <div>2</div>
           </div>
