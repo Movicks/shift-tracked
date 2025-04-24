@@ -2,50 +2,39 @@ import { useEffect } from 'react';
 import { Drawer, List, ListItemButton, ListItemText, Box, ListItemIcon } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { SidebarProps } from '../../types/types';
-
-// Import SVG icons as strings (file paths)
-import DashboardIconSrc from '../../assets/icons/grid-3.svg';
-import RotaIconSrc from '../../assets/icons/folder-open.svg';
-import CheckInsIconSrc from '../../assets/icons/calendar.svg';
-import StaffIconSrc from '../../assets/icons/tag-user.svg';
-import ServiceUserIconSrc from '../../assets/icons/user.svg';
 import LogOutIcon from '../../assets/icons/logout.svg';
-import { AiOutlineSetting } from 'react-icons/ai';
+
+// Import icons from react-icons
+import {  
+  FiSettings
+} from 'react-icons/fi';
+import { FolderOpen, Grid3, TagUser, User } from 'iconsax-reactjs';
+import { LuCalendarDays } from 'react-icons/lu';
 
 const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMobile, isTablet }) => {
   const drawerWidth = 272;
   const location = useLocation();
 
-  // Function to create SVG components from image sources
-  const createSvgComponent = (src: string) => {
-    return ({ style, ...props }: React.SVGProps<SVGSVGElement>) => (
-      <svg 
-        {...props} 
-        viewBox="0 0 24 24" 
-        width="1em" 
-        height="1em"
-        style={{ ...style, fontSize: '20px' }}
-      >
-        <image href={src} width="100%" height="100%" />
-      </svg>
-    );
+  // Enhanced IconWrapper with special styling for FiGrid
+  const IconWrapper = ({ icon: Icon, active }: { 
+    icon: React.ElementType; 
+    active: boolean;
+  }) => {
+    const baseStyle = { 
+      color: active ? '#007BFF' : 'currentColor',
+      fontSize: '20px',
+      transition: 'all 0.2s ease-in-out'
+    };
+
+    // Special styles only for FiGrid
+    const isFiGrid = Icon === Grid3;
+    const extraStyles = isFiGrid ? {
+      strokeWidth: active ? '2.5px' : '2px',
+      transform: active ? 'scale(1.05)' : 'scale(1)'
+    } : {};
+
+    return <Icon style={{ ...baseStyle, ...extraStyles }} />;
   };
-
-  // Create icon components
-  const DashboardIcon = createSvgComponent(DashboardIconSrc);
-  const RotaIcon = createSvgComponent(RotaIconSrc);
-  const CheckInsIcon = createSvgComponent(CheckInsIconSrc);
-  const StaffIcon = createSvgComponent(StaffIconSrc);
-  const ServiceUserIcon = createSvgComponent(ServiceUserIconSrc);
-
-  // SVG icon component with styling
-  const SvgIcon = ({ icon: Icon, active }: { icon: React.FC<React.SVGProps<SVGSVGElement>>; active: boolean }) => (
-    <Icon 
-      style={{ 
-        color: active ? '#007BFF' : 'currentColor'
-      }} 
-    />
-  );
 
   // Function to calculate milliseconds until 12 AM
   const getMillisecondsUntilMidnight = () => {
@@ -83,11 +72,11 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
       <List sx={{ backgroundColor: 'transparent' }}>
         <header className='text-start text-xs text-gray-500 pl-4 mb-2'>MAIN</header>
         {[
-          { text: 'Dashboard', path: '/', icon: DashboardIcon },
-          { text: 'Rota', path: '/rota', icon: RotaIcon },
-          { text: 'Check-ins', path: '/checkins', icon: CheckInsIcon },
-          { text: 'Staff', path: '/staff', icon: StaffIcon },
-          { text: 'Service User', path: '/service-user', icon: ServiceUserIcon },
+          { text: 'Dashboard', path: '/', icon: Grid3 },
+          { text: 'Rota', path: '/rota', icon: FolderOpen },
+          { text: 'Check-ins', path: '/checkins', icon: LuCalendarDays },
+          { text: 'Staff', path: '/staff', icon: TagUser },
+          { text: 'Service User', path: '/service-user', icon: User },
         ].map((item) => {
           const isActive = location.pathname === item.path;
           return (
@@ -110,13 +99,13 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
                 color: isActive ? '#007BFF' : '',
                 minWidth: '40px'
               }}>
-                <SvgIcon icon={item.icon} active={isActive} />
+                <IconWrapper icon={item.icon} active={isActive} />
               </ListItemIcon>
               <ListItemText 
                 primary={item.text} 
                 className='flex items-center mt-7 mb-7' 
                 primaryTypographyProps={{
-                  fontWeight: isActive ? 'normal' : 'normal' //just in case the team wants to add active font weight
+                  fontWeight: isActive ? 'normal' : 'normal'
                 }}
               />
             </ListItemButton>
@@ -130,7 +119,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
         <List sx={{ backgroundColor: 'transparent' }} className='w-full'>
           <header className='text-start text-xs text-gray-500 pl-4 mb-2 uppercase'>OTHER</header>
           {[
-            { text: 'Settings', path: '/settings', icon: <AiOutlineSetting className='w-6 h-6' /> },
+            { text: 'Settings', path: '/settings', icon: FiSettings },
           ].map((item) => {
             const isActive = location.pathname === item.path;
             return (
@@ -152,7 +141,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
                   color: isActive ? '#007BFF' : '',
                   minWidth: '40px'
                 }}>
-                  {item.icon}
+                  <IconWrapper icon={item.icon} active={isActive} />
                 </ListItemIcon>
                 <ListItemText 
                   primary={item.text} 
@@ -170,8 +159,6 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, handleDrawerToggle, isMob
           <span>Logout Account</span>
         </button>
       </List>
-
-
     </Box>
   );
 

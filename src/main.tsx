@@ -14,7 +14,7 @@ import {
   Root,
   MainLayout,
   Dashboard,
-  
+  Settings,
 } from "./App";
 
 
@@ -25,6 +25,7 @@ const router = createBrowserRouter(
         {/* Pages with header and footer */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
         </Route>
     </Route>,
   ),
